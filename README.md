@@ -16,8 +16,6 @@ L'objectiu d'aquest espai és acompanyar-te durant el quadrimestre oferint mater
 
 ---
 
----
-
 ## 📍 Informació de les Sessions de Suport (Aula Lliure)
 
 Aquest espai és un punt de trobada presencial d'accés obert per resoldre dubtes, revisar codi i preparar les avaluacions contínues i controls de laboratori amb l'acompanyament del professor de suport.
@@ -36,3 +34,8 @@ Aquest espai és un punt de trobada presencial d'accés obert per resoldre dubte
 - **Treball individual o en grup:** Pots treballar de forma autònoma fent exercicis del Jutge i cridar el professor de suport quan detectis un bloqueig, un *Execution Error* o dubtis sobre l'eficiència del teu enfocament.
 - **Revisió de controls de laboratori (CL):** Abans de cada control pràctic, farem simulacres de problemes amb límit de temps per agafar soltesa amb les eines i la consola.
 - **Preparació de l'Examen Parcial i Final:** Resolució guiada d'exàmens d'anys anteriors i tècniques d'esquematització d'algorismes a paper/ordinador.
+
+---
+---
+
+## 👨‍🏫 Professor Cesc Feliu [@cescfeliu](https://github.com/cescfeliu)
