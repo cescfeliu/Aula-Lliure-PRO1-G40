@@ -195,3 +195,9 @@ En una funció recursiva que retorna un valor, cal entendre què retorna cada cr
 - Tota recursivitat necessita un **cas base** i un **cas recursiu**.
 - Cada crida recursiva ha d'apropar el problema al cas base.
 - Quan s'arriba al cas base, les crides pendents comencen a retornar els resultats.
+
+## 9. Exercicis Classe
+- P51222 - Nombre de dígits recursiu
+- P12509 - Factorial recursiu
+- P35537 - Nombres creixents
+- P26041 - Girant una llista de paraules (1)
