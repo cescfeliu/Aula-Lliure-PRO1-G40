@@ -17,9 +17,9 @@ L'objectiu d'aquest espai és acompanyar-te durant el quadrimestre oferint mater
 
 Aquest espai és un punt de trobada presencial d'accés obert per resoldre dubtes, revisar codi i preparar les avaluacions contínues i controls de laboratori amb l'acompanyament del professor de suport.
 
-| **Ubicació / Aula** | B5S202 |
-| **Dies de suport** | Divendres |
-| **Horari d'atenció** | 12:00h - 14:00h |
+| Aula | Dia de classe | Horari |
+| :--- | :--- | :--- |
+| B5S202 | Divendres | 12:00h - 14:00h |
 
 ---
 
