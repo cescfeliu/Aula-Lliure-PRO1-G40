@@ -21,14 +21,6 @@ Les sessions són obertes: pots venir a fer exercicis del [Jutge.org](https://ju
 
 ---
 
-### 🕒 Com funcionen les sessions presencials?
-
-- **Format obert:** Pots venir amb el teu propi portàtil o utilitzar directament els ordinadors de l'aula de laboratori.
-- **Treball individual o en grup:** Pots treballar de forma autònoma fent exercicis del Jutge i cridar el professor de suport quan detectis un bloqueig, un *Execution Error* o dubtis sobre l'eficiència del teu enfocament.
-- **Revisió de controls de laboratori (CL):** Abans de cada control pràctic, farem simulacres de problemes amb límit de temps per agafar soltesa amb les eines i la consola.
-- **Preparació de l'Examen Parcial i Final:** Resolució guiada d'exàmens d'anys anteriors i tècniques d'esquematització d'algorismes a paper/ordinador.
-
----
 ### 💬 Dubtes i Contacte
 
 Si et quedes encallat/da en un exercici fora de l'horari de classe, pots obrir un Issue en aquest repositori amb el codi del problema del Jutge i el teu codi, o portar-lo apuntat el divendres a l'aula.
