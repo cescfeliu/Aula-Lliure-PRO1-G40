@@ -1,7 +1,4 @@
-# Aula-Lliure-PRO1-G40
-
-
-# 🚀 Recursos i Suport de PRO1 | Aula Lliure
+# Aula-Lliure-PRO1-G40 🚀
 
 Benvingut/da al repositori de suport per a **Programació 1 (PRO1)** en C++ del G40 de l'Aula Lliure.
 
