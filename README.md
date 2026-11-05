@@ -37,4 +37,4 @@ Aquest espai és un punt de trobada presencial d'accés obert per resoldre dubte
 
 ---
 
-# 👨‍🏫 Professor [@cescfeliu](https://github.com/cescfeliu)
+### 👨‍🏫 Professor [@cescfeliu](https://github.com/cescfeliu)
