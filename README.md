@@ -36,6 +36,5 @@ Aquest espai és un punt de trobada presencial d'accés obert per resoldre dubte
 - **Preparació de l'Examen Parcial i Final:** Resolució guiada d'exàmens d'anys anteriors i tècniques d'esquematització d'algorismes a paper/ordinador.
 
 ---
----
 
 ## 👨‍🏫 Professor Cesc Feliu [@cescfeliu](https://github.com/cescfeliu)
