@@ -169,3 +169,11 @@ Si pasas un vector como `const` y dentro escribes `v[0] = 5;`, el programa no co
 * Usa `int n = v.size();` para trabajar cómodamente con el tamaño del vector.
 * Un `string` se comporta en la práctica como un `vector<char>`.
 * Pasa siempre los vectores por **referencia constante** (`const vector<T>&`) a menos que tengas que modificarlos (`vector<T>&`).
+
+## 9. Ejercicios Clase
+- P14130 - Igual a l'últim (Igual al último)
+- P67268 - Inversió de seqüències (Inversión de secuencias)
+- P50497 - És un palíndrom? (¿Es un palíndromo?)
+- P63414 - Comptant freqüències (Contando frecuencias)
+- X41120 - Vector muntanyós (Vector montañoso)
+- P12675 - Elements comuns (Elementos comunes)
