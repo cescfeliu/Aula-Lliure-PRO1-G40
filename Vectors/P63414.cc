@@ -1,7 +1,6 @@
 // Comptant freqüències
 // https://jutge.org/problems/P63414_ca
 // P63414_ca:std:none:G++17
-// Created on 22/11/2025, 16:19:25 by Pau Fernández
 
 #include <iostream>
 #include <vector>

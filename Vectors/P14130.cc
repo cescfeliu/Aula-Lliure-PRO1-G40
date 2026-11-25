@@ -1,7 +1,6 @@
 // Igual a l'últim
 // https://jutge.org/problems/P14130_ca
 // P14130_ca:std:none:G++17
-// Created on 22/11/2025, 16:07:34 by Pau Fernández
 
 #include <iostream>
 #include <vector>

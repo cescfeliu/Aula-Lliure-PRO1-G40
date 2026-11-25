@@ -1,7 +1,6 @@
 // Vector muntanyos
 // https://jutge.org/problems/X41120_ca
 // X41120_ca:std:none:G++17
-// Created on 22/11/2025, 17:21:31 by Pau Fernández
 
 #include <iostream>
 #include <vector>

@@ -1,7 +1,6 @@
 // És un palíndrom?
 // https://jutge.org/problems/P50497_ca
 // P50497_ca:std:no_main:G++17
-// Created on 22/11/2025, 16:22:49 by Pau Fernández
 
 #include <iostream>
 #include <string>
