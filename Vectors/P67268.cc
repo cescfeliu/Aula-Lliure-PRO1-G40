@@ -1,6 +1,5 @@
 // Inversió de seqüències
 // https://jutge.org/problems/P67268_ca
-// P67268_ca:std:none:G++17
 
 #include <iostream>
 #include <vector>

@@ -1,6 +1,5 @@
 // És un palíndrom?
 // https://jutge.org/problems/P50497_ca
-// P50497_ca:std:no_main:G++17
 
 #include <iostream>
 #include <string>

@@ -1,6 +1,5 @@
 // Vector muntanyos
 // https://jutge.org/problems/X41120_ca
-// X41120_ca:std:none:G++17
 
 #include <iostream>
 #include <vector>

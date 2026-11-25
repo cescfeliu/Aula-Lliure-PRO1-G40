@@ -1,6 +1,5 @@
 // Elements comuns
 // https://jutge.org/problems/P12675_ca
-// P12675_ca:std:no_main:G++17
 
 #include <iostream>
 #include <vector>
