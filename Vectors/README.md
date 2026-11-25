@@ -1,3 +1,5 @@
+🌐 **Català** | [Castellano](README.es.md)
+
 # Introducció als vectors
 
 ## 1. Què és un vector?

@@ -1,3 +1,5 @@
+🌐 **Català** | [Castellano](README.es.md)
+
 # PRO1 — Aula Lliure (G40) 💻
 
 Material de suport, apunts resumits i exercicis resolts per a les sessions d'Aula Lliure de **Programació 1 (C++)** a la FIB.

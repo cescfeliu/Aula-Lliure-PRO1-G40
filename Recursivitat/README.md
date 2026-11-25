@@ -1,3 +1,5 @@
+🌐 **Català** | [Castellano](README.es.md)
+
 # Introducció a la recursivitat
 
 ## 1. Què és la recursivitat?
