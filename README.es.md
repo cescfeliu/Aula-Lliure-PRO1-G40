@@ -9,7 +9,20 @@ Material de apoyo, apuntes resumidos y ejercicios resueltos para las sesiones de
 ## 🎯 ¿Qué encontrarás aquí?
 
 - **Apuntes sintéticos:** Resúmenes de cada bloque temático centrando el foco en los conceptos clave que suelen generar más confusiones en clase.
-- **Ejercicios resueltos paso a paso:** Problemas típicos de examen y del [Jutge.org](https://jutge.org/) con explicación de la estrategia de resolución antes del código.
+- **Ejercicios resueltos:** Problemas típicos de examen y del [Jutge.org](https://jutge.org/) trabajados en clase.
+
+---
+
+## 📚 Temario y Apuntes
+
+| Bloque | Contenido |
+| :--- | :--- |
+| [01-Introduccio](01-Introduccio/README.es.md) | Variables, condicionales, tipos de datos, conversiones y visibilidad |
+| [02-Bucles-i-Sequencies](02-Bucles-i-Sequencies/README.es.md) | Bucles `while`/`for`, recorrido, búsqueda y ventanas |
+| [03-Funcions](03-Funcions/README.es.md) | Funciones, acciones (`void`) y paso por valor vs. referencia |
+| [04-Recursivitat](04-Recursivitat/README.es.md) | Caso base, caso recursivo, pila de llamadas y ejercicios |
+| [05-Vectors](05-Vectors/README.es.md) | Vectores, `string`, búsqueda lineal/binaria, coste ($O$) y `sort()` |
+| [06-Matrius](06-Matrius/README.es.md) | `typedef`, recorridos, diseño *Top-Down* y producto de matrices |
 
 ---
 
