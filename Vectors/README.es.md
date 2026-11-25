@@ -163,14 +163,132 @@ Escribir `int suma(vector<int> v)` en lugar de `int suma(const vector<int>& v)` 
 
 Si pasas un vector como `const` y dentro escribes `v[0] = 5;`, el programa no compilará. El compilador te protege porque has prometido que no lo modificarías.
 
-## 8. Ideas clave
+## 8. Búsqueda lineal (secuencial)
+
+Dado un vector `v` y un valor `x`, queremos encontrar una posición `i` tal que `v[i] == x`, o devolver `-1` si `x` no está.
+
+La **búsqueda lineal** recorre el vector elemento a elemento de izquierda a derecha:
+
+```cpp
+// pre: ---
+// post: devuelve el índice i tal que v[i] == x, o -1 si x no está en v
+int busqueda_lineal(const vector<int>& v, int x) {
+    int n = v.size();
+    int i = 0;
+    // Inv: x no está en v[0..i-1]
+    while (i < n and v[i] != x) ++i;
+    if (i < n) return i;
+    else return -1;
+}
+```
+
+> **Importante (evaluación en cortocircuito):** En `i < n and v[i] != x`, si `i == n`, la segunda condición no se evalúa. Escribir `while (v[i] != x and i < n)` es un **error grave**: cuando `x` no está en el vector, accede a `v[n]` (fuera de rango).
+
+* **Mejor caso:** `x` está en la posición `0` → `1` comprobación.
+* **Peor caso:** `x` está al final o no está → `n` comprobaciones. Es un algoritmo **$O(n)$**.
+
+## 9. Coste de los algoritmos (Notación $O$ grande)
+
+La **complejidad temporal** mide cómo crece el número de pasos (comparaciones, accesos) en función del tamaño de la entrada `n`, quedándonos con el término dominante e ignorando constantes:
+
+| Notación | Crecimiento | Ejemplo |
+| :--- | :--- | :--- |
+| $O(1)$ | Constante | Acceder a `v[i]` |
+| $O(\log n)$ | Logarítmico (muy lento) | Búsqueda binaria |
+| $O(n)$ | Lineal | Búsqueda lineal |
+| $O(n \log n)$ | Lineal-logarítmico | `sort()` |
+| $O(n^2)$ | Cuadrático | Dos bucles anidados sobre `v` |
+
+> **Nota:** En informática, $\log n$ significa $\log_2 n$ (cuántas veces podemos dividir `n` por la mitad hasta llegar a `1`). Para $n = 1\,000\,000$, $\log_2 n \approx 20$.
+
+## 10. Búsqueda binaria (dicotómica)
+
+**Precondición:** el vector `v` debe estar **ordenado** de menor a mayor.
+
+En lugar de ir uno a uno, miramos el elemento central `mid` y descartamos la mitad donde sabemos seguro que no puede estar `x`:
+
+```cpp
+// pre: v está ordenado de menor a mayor
+// post: devuelve i tal que v[i] == x, o -1 si x no está en v
+int busqueda_binaria(const vector<int>& v, int x) {
+    int izq = 0;
+    int der = int(v.size()) - 1;
+    // Inv: si x está en v, está en v[izq..der]
+    while (izq < der) {
+        int mid = (izq + der) / 2;
+        if (x > v[mid]) izq = mid + 1;  // descartamos v[izq..mid]
+        else der = mid;                 // descartamos v[mid+1..der]
+    }
+    if (izq == der and v[izq] == x) return izq;
+    else return -1;
+}
+```
+
+También se puede escribir de forma **recursiva** pasando `izq` y `der` como parámetros:
+
+```cpp
+int busqueda_binaria_rec(const vector<int>& v, int x, int izq, int der) {
+    if (izq > der) return -1;
+    int mid = (izq + der) / 2;
+    if (x > v[mid]) return busqueda_binaria_rec(v, x, mid + 1, der);
+    else if (x < v[mid]) return busqueda_binaria_rec(v, x, izq, mid - 1);
+    else return mid;
+}
+```
+
+* Cada iteración divide la zona activa por la mitad: el coste es **$O(\log n)$**.
+* En $10\,000\,000$ de elementos ordenados, la búsqueda lineal hace hasta $10\,000\,000$ de pasos; la búsqueda binaria, como máximo **24**.
+
+## 11. Ordenación con `sort()`
+
+Para ordenar un vector de menor a mayor hay que incluir `<algorithm>` y llamar a:
+
+```cpp
+#include <algorithm>
+
+sort(v.begin(), v.end());
+```
+
+* Los `string` se ordenan alfabéticamente (orden lexicográfico) por defecto.
+* El coste garantizado de `sort()` es **$O(n \log n)$**.
+
+### Criterio de ordenación personalizado
+
+Podemos pasar una función comparadora `cmp` como tercer argumento (sin paréntesis):
+
+```cpp
+// Ejemplo 1: ordenar enteros de mayor a menor
+bool cmp_desc(int x, int y) {
+    return x > y;
+}
+
+// Ejemplo 2: strings de más corto a más largo (y alfabéticamente en caso de empate)
+bool cmp_len(const string& s1, const string& s2) {
+    if (s1.length() == s2.length()) return s1 < s2;
+    return s1.length() < s2.length();
+}
+
+// Uso:
+sort(v.begin(), v.end(), cmp_desc);
+```
+
+### ¿Cuándo vale la pena ordenar?
+
+* **No** ordenes para encontrar el mínimo (se hace en $O(n)$) ni para hacer **1 o pocas búsquedas** ($O(n \log n)$ es más caro que $O(n)$).
+* **Sí** vale la pena ordenar cuando tienes que hacer **muchas búsquedas** ($k$ búsquedas):
+  * $k$ búsquedas lineales: $\approx k \cdot n$
+  * Ordenar + $k$ búsquedas binarias: $\approx n \log n + k \log n$
+
+## 12. Ideas clave
 
 * Un vector guarda datos homogéneos con acceso directo por índice (`0` hasta `n - 1`).
 * Usa `int n = v.size();` para trabajar cómodamente con el tamaño del vector.
 * Un `string` se comporta en la práctica como un `vector<char>`.
 * Pasa siempre los vectores por **referencia constante** (`const vector<T>&`) a menos que tengas que modificarlos (`vector<T>&`).
+* La búsqueda lineal funciona en cualquier vector en $O(n)$; la búsqueda binaria necesita el vector ordenado y cuesta $O(\log n)$.
+* `sort(v.begin(), v.end())` ordena en $O(n \log n)$: ordena una vez y busca muchas veces.
 
-## 9. Ejercicios Clase
+## 13. Ejercicios Clase
 - P14130 - Igual a l'últim (Igual al último)
 - P67268 - Inversió de seqüències (Inversión de secuencias)
 - P50497 - És un palíndrom? (¿Es un palíndromo?)

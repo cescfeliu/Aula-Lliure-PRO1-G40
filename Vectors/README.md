@@ -163,14 +163,132 @@ Escriure `int suma(vector<int> v)` en lloc de `int suma(const vector<int>& v)` f
 
 Si passes un vector com a `const` i a dins escrius `v[0] = 5;`, el programa no compilarà. El compilador et protegeix perquè has promès que no el modificaries.
 
-## 8. Idees clau
+## 8. Cerca lineal (seqüencial)
+
+Donat un vector `v` i un valor `x`, volem trobar una posició `i` tal que `v[i] == x`, o retornar `-1` si `x` no hi és.
+
+La **cerca lineal** recorre el vector element a element d'esquerra a dreta:
+
+```cpp
+// pre: ---
+// post: retorna l'índex i tal que v[i] == x, o -1 si x no és a v
+int cerca_lineal(const vector<int>& v, int x) {
+    int n = v.size();
+    int i = 0;
+    // Inv: x no és a v[0..i-1]
+    while (i < n and v[i] != x) ++i;
+    if (i < n) return i;
+    else return -1;
+}
+```
+
+> **Important (avaluació en curtcircuit):** En `i < n and v[i] != x`, si `i == n`, la segona condició no s'avalua. Escriure `while (v[i] != x and i < n)` és un **error greu**: quan `x` no és al vector, accedeix a `v[n]` (fora de rang).
+
+* **Millor cas:** `x` és a la posició `0` → `1` comprovació.
+* **Pitjor cas:** `x` és al final o no hi és → `n` comprovacions. És un algorisme **$O(n)$**.
+
+## 9. Cost dels algorismes (Notació $O$ gran)
+
+La **complexitat temporal** mesura com creix el nombre de passos (comparacions, accessos) en funció de la mida de l'entrada `n`, quedant-nos amb el terme dominant i ignorant constants:
+
+| Notació | Creixement | Exemple |
+| :--- | :--- | :--- |
+| $O(1)$ | Constant | Accedir a `v[i]` |
+| $O(\log n)$ | Logarítmic (molt lent) | Cerca binària |
+| $O(n)$ | Lineal | Cerca lineal |
+| $O(n \log n)$ | Lineal-logarítmic | `sort()` |
+| $O(n^2)$ | Quadràtic | Dos bucles imbricats sobre `v` |
+
+> **Nota:** En informàtica, $\log n$ significa $\log_2 n$ (quantes vegades podem dividir `n` per la meitat fins arribar a `1`). Per a $n = 1\,000\,000$, $\log_2 n \approx 20$.
+
+## 10. Cerca binària (dicotòmica)
+
+**Precondició:** el vector `v` ha d'estar **ordenat** de petit a gran.
+
+En lloc d'anar d'un en un, mirem l'element del mig `mid` i descartem la meitat on sabem segur que no pot ser `x`:
+
+```cpp
+// pre: v està ordenat de petit a gran
+// post: retorna i tal que v[i] == x, o -1 si x no és a v
+int cerca_binaria(const vector<int>& v, int x) {
+    int esq = 0;
+    int dre = int(v.size()) - 1;
+    // Inv: si x és a v, és dins de v[esq..dre]
+    while (esq < dre) {
+        int mid = (esq + dre) / 2;
+        if (x > v[mid]) esq = mid + 1;  // descartem v[esq..mid]
+        else dre = mid;                 // descartem v[mid+1..dre]
+    }
+    if (esq == dre and v[esq] == x) return esq;
+    else return -1;
+}
+```
+
+També es pot escriure de manera **recursiva** passant `esq` i `dre` com a paràmetres:
+
+```cpp
+int cerca_binaria_rec(const vector<int>& v, int x, int esq, int dre) {
+    if (esq > dre) return -1;
+    int mid = (esq + dre) / 2;
+    if (x > v[mid]) return cerca_binaria_rec(v, x, mid + 1, dre);
+    else if (x < v[mid]) return cerca_binaria_rec(v, x, esq, mid - 1);
+    else return mid;
+}
+```
+
+* Cada iteració divideix la zona activa per la meitat: el cost és **$O(\log n)$**.
+* En $10\,000\,000$ d'elements ordenats, la cerca lineal fa fins a $10\,000\,000$ de passos; la cerca binària, com a màxim **24**.
+
+## 11. Ordenació amb `sort()`
+
+Per ordenar un vector de petit a gran cal incloure `<algorithm>` i cridar:
+
+```cpp
+#include <algorithm>
+
+sort(v.begin(), v.end());
+```
+
+* Els `string` s'ordenen alfabèticament (ordre lexicogràfic) per defecte.
+* El cost garantit de `sort()` és **$O(n \log n)$**.
+
+### Criteri d'ordenació personalitzat
+
+Podem passar una funció comparadora `cmp` com a tercer argument (sense parèntesis):
+
+```cpp
+// Exemple 1: ordenar enters de gran a petit
+bool cmp_desc(int x, int y) {
+    return x > y;
+}
+
+// Exemple 2: strings de més curt a més llarg (i alfabèticament en cas d'empat)
+bool cmp_len(const string& s1, const string& s2) {
+    if (s1.length() == s2.length()) return s1 < s2;
+    return s1.length() < s2.length();
+}
+
+// Ús:
+sort(v.begin(), v.end(), cmp_desc);
+```
+
+### Quan val la pena ordenar?
+
+* **No** ordenis per trobar el mínim (es fa en $O(n)$) ni per fer **1 o poques cerques** ($O(n \log n)$ és més car que $O(n)$).
+* **Sí** val la pena ordenar quan has de fer **moltes cerques** ($k$ cerques):
+  * $k$ cerques lineals: $\approx k \cdot n$
+  * Ordenar + $k$ cerques binàries: $\approx n \log n + k \log n$
+
+## 12. Idees clau
 
 * Un vector guarda dades homogènies amb accés directe per índex (`0` fins a `n - 1`).
 * Fes servir `int n = v.size();` per treballar còmodament amb la mida del vector.
 * Un `string` es comporta a la pràctica com un `vector<char>`.
 * Passa sempre els vectors per **referència constant** (`const vector<T>&`) tret que els hagis de modificar (`vector<T>&`).
+* La cerca lineal funciona en qualsevol vector en $O(n)$; la cerca binària necessita el vector ordenat i costa $O(\log n)$.
+* `sort(v.begin(), v.end())` ordena en $O(n \log n)$: ordena una vegada i cerca moltes vegades.
 
-## 9. Exercicis Classe
+## 13. Exercicis Classe
 - P14130 - Igual a l'últim
 - P67268 - Inversió de seqüències
 - P50497 - És un palíndrom?
