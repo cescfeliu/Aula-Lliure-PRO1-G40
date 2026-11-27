@@ -23,6 +23,8 @@ Material de suport, apunts resumits i exercicis resolts per a les sessions d'Aul
 | [04-Recursivitat](04-Recursivitat/README.md) | Cas base, cas recursiu, pila de crides i exercicis |
 | [05-Vectors](05-Vectors/README.md) | Vectors, `string`, cerca lineal/binària, cost ($O$) i `sort()` |
 | [06-Matrius](06-Matrius/README.md) | `typedef`, recorreguts, disseny *Top-Down* i producte de matrius |
+| [07-Tuples](07-Tuples/README.md) | `struct`, composició, ordenació de tuples i `push_back()` / `pop_back()` |
+| [08-Ordenacio](08-Ordenacio/README.md) | Inserció, selecció, fusió de vectors i *Mergesort* ($O(n \log n)$) |
 
 ---
 
