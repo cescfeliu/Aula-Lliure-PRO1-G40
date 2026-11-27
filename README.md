@@ -43,3 +43,5 @@ Si et quedes encallat/da en un exercici fora de l'horari de classe, pots obrir u
 ---
 
 ### 👨‍🏫 Professor [@cescfeliu](https://github.com/cescfeliu)
+
+📄 Llicència: [CC BY-NC-SA 4.0](LICENSE)

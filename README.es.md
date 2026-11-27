@@ -43,3 +43,5 @@ Si te quedas atascado/a en un ejercicio fuera del horario de clase, puedes abrir
 ---
 
 ### 👨‍🏫 Profesor [@cescfeliu](https://github.com/cescfeliu)
+
+📄 Licencia: [CC BY-NC-SA 4.0](LICENSE)
