@@ -24,7 +24,7 @@ Material de apoyo, apuntes resumidos y ejercicios resueltos para las sesiones de
 | [05-Vectors](05-Vectors/README.es.md) | Vectores, `string`, búsqueda lineal/binaria, coste ($O$) y `sort()` |
 | [06-Matrius](06-Matrius/README.es.md) | `typedef`, recorridos, diseño *Top-Down* y producto de matrices |
 | [07-Tuples](07-Tuples/README.es.md) | `struct`, composición, ordenación de tuplas y `push_back()` / `pop_back()` |
-| [08-Ordenacio](08-Ordenacio/README.es.md) | Inserción, selección, fusión de vectores y *Mergesort* ($O(n \log n)$) |
+| [08-Algoritmes-fonamentals](08-Algoritmes-fonamentals/README.es.md) | Inserción, selección, fusión de vectores y *Mergesort* ($O(n \log n)$) |
 
 ---
 
